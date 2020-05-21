@@ -1,3 +1,3 @@
 # Digital-Image-Processing
 
-Matlab 
+Working through Digital Image Processing Using Matlab authored by Gonzalez and Woods. 
