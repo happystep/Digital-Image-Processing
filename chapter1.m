@@ -2,6 +2,7 @@
 % Matlab will read the .m file as a script from the top.
 
 % Variables are declared as follows don't forget statements end with ;
+% 1 - Tutorial Lessons 1
 
 x = 3; % here we are assign the variable x with the value 
 disp(x)
@@ -11,7 +12,7 @@ disp(x)
 x = 6; 
 disp(x)
 
-
+% 2 - Tutorial Lessons 2
 % Matlab includes many bult in mathematical functions 
 % elementary functions include, but are not limited to
 
@@ -224,21 +225,160 @@ disp(D)
 % wilkinson Wilkinson’s eigenvalue test matrix
 
 
+% 3 - Array operations and linear equations
+
+% matrix arithmetic operations, +, -, *, ^ all work
+
+% array arithmetic operations, + and - work the same as matrix
+
+
+A = [1 2 3; 4 5 6; 7 8 9];
+B = [10 20 30; 40 50 60; 70 80 90];
+
+C = A.*B;
+disp(C)
+
+D = A.^2;
+disp(D)
+ 
+ 
+% solving linear equations
+
+A = [1 2 3; 4 5 6; 7 8 0];
+b = [1; 1; 1];
+x = inv(A)*b;
+disp(x)
+
+% or this way, is faster computationally
+A = [1 2 3; 4 5 6; 7 8 0];
+b = [1; 1; 1];
+x = A\b;
+disp(x)
+
+% we also have inverse and determinants
+disp(inv(A))
+disp(det(A))
+
+% matrix functions include
+
+disp(eig(A))
+disp(norm(A))
+disp(rank(A))
+
+% 4 - Introduction to Programming with MATLAB
+
+% f = factorial(5);
+% disp(f)
+
+% use of input
+num = input('Enter a number between 0-10: ');
+disp(num^2)
+
+% function f = factorial(n) 
+% % FACTORIAL(N) returns the factorial of N. 
+% % Compute a factorial value. 
+% f = prod(1:n);
+% end
+
+% function is commented out in order to continue with book
+
+% 5 - Control flow and operators
+
+% control flow - if, elseif, else, end
+a = 1; 
+b = 2;
+c = 3;
+discr = b*b - 4*a*c;
+if discr < 0
+disp('Warning: discriminant is negative, roots are imaginary')
+end
+
+discr = b*b - 4*a*c;
+if discr < 0
+disp('Warning: discriminant is negative, roots are imaginary');
+else
+disp('Roots are real, but may be repeated')
+end
+
+
+discr = b*b - 4*a*c;
+if discr < 0
+disp('Warning: discriminant is negative, roots are imaginary');
+elseif discr == 0
+disp('Discriminant is zero, roots are repeated')
+else
+disp('Roots are real')
+end
+
+% control flow - rational and logical operators
+
+% > Greater than
+% < Less than
+% >= Greater than or equal to
+% <= Less than or equal to
+% == Equal to
+% ∼= Not equal to
+% & AND operator
+% | OR operator
+% ∼ NOT operator
+
+
+% control flow - for end loop
+
+for ii=1:5
+x=ii*ii;
+disp(x)
+end
+
+n = 5; A = eye(n);
+for j=2:n
+for i=1:j-1
+A(i,j)=i/j;
+A(j,i)=i/j;
+end
+end
+
+disp(A)
+ 
+% control flow - while end loop
+
+x = 1;
+while x <= 10
+x = 3*x;
+disp(x)
+end
+
+
+% other flow strucutre include, break, continue and return. 
+
+% MATLAB Operator Precedence
+
+% 1 Parentheses
+% 2 Transpose 
+% 3 Unary plus (+), unary minus (−), logical negation (∼)
+% 4 Multiplication (. ∗), right division (. /), left division (.\),
+%     matrix multiplication (∗), matrix right division (/),
+%     matrix left division (\)
+% 5 Addition (+), subtraction (−)
+% 6 Colon operator (:)
+% 7 Less than (<), less than or equal to (≤), greater (>),
+% greater than or equal to (≥), equal to (==), not equal to (∼=)
+% 8 Element-wise AND, (&)
+% 9 Element-wise OR, (|)
 
 
 
+% writing to a file
+
+% write some variable length strings to a file
+op = fopen('weekdays.txt','wt');
+fprintf(op,'Sunday\nMonday\nTuesday\nWednesday\n');
+fprintf(op,'Thursday\nFriday\nSaturday\n');
+fclose(op);
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+% 6 - Debugging M-files
+
+% this is similar to other IDE. The user can set different breakpoints. 
  
  
  
